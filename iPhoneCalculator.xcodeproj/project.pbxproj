@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		3FF875131CACC10200147732 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF875121CACC10200147732 /* main.m */; };
 		3FF875161CACC10200147732 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF875151CACC10200147732 /* AppDelegate.m */; };
-		3FF875191CACC10200147732 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF875181CACC10200147732 /* ViewController.m */; };
+		3FF875191CACC10200147732 /* CalculatorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FF875181CACC10200147732 /* CalculatorViewController.m */; };
 		3FF8751C1CACC10300147732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8751A1CACC10300147732 /* Main.storyboard */; };
 		3FF8751E1CACC10300147732 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8751D1CACC10300147732 /* Assets.xcassets */; };
 		3FF875211CACC10300147732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FF8751F1CACC10300147732 /* LaunchScreen.storyboard */; };
@@ -20,8 +20,8 @@
 		3FF875121CACC10200147732 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3FF875141CACC10200147732 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3FF875151CACC10200147732 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3FF875171CACC10200147732 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3FF875181CACC10200147732 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3FF875171CACC10200147732 /* CalculatorViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CalculatorViewController.h; sourceTree = "<group>"; };
+		3FF875181CACC10200147732 /* CalculatorViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CalculatorViewController.m; sourceTree = "<group>"; };
 		3FF8751B1CACC10300147732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3FF8751D1CACC10300147732 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3FF875201CACC10300147732 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -58,10 +58,8 @@
 		3FF875101CACC10200147732 /* iPhoneCalculator */ = {
 			isa = PBXGroup;
 			children = (
-				3FF875141CACC10200147732 /* AppDelegate.h */,
-				3FF875151CACC10200147732 /* AppDelegate.m */,
-				3FF875171CACC10200147732 /* ViewController.h */,
-				3FF875181CACC10200147732 /* ViewController.m */,
+				3FF875171CACC10200147732 /* CalculatorViewController.h */,
+				3FF875181CACC10200147732 /* CalculatorViewController.m */,
 				3FF8751A1CACC10300147732 /* Main.storyboard */,
 				3FF8751D1CACC10300147732 /* Assets.xcassets */,
 				3FF8751F1CACC10300147732 /* LaunchScreen.storyboard */,
@@ -74,6 +72,8 @@
 		3FF875111CACC10200147732 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3FF875141CACC10200147732 /* AppDelegate.h */,
+				3FF875151CACC10200147732 /* AppDelegate.m */,
 				3FF875121CACC10200147732 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -149,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3FF875191CACC10200147732 /* ViewController.m in Sources */,
+				3FF875191CACC10200147732 /* CalculatorViewController.m in Sources */,
 				3FF875161CACC10200147732 /* AppDelegate.m in Sources */,
 				3FF875131CACC10200147732 /* main.m in Sources */,
 			);
