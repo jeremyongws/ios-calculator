@@ -34,57 +34,66 @@
 
 - (IBAction)onButtonPressed:(UIButton *)sender {
 	NSString *buttonPressed = sender.titleLabel.text;
-	if (_justPressedOperator){
-		self.numberLabel.text = buttonPressed;
-		self.justPressedOperator = NO;
-	}
+	NSUInteger timesOfDot = [[self.numberLabel.text componentsSeparatedByString:@"."] count] - 1;
+	
 	
 	if ([buttonPressed isEqualToString:@"AC"]){
 		[self.numberLabel setText:@"0"];
+		self.valueStored = 0;
 	} else if ([buttonPressed isEqualToString:@"."]){
 		if (_justPressedOperator){
 				self.numberLabel.text = @"0.";
 		}
-		if ([self.numberLabel.text rangeOfString:@"."].location == NSNotFound){
+		if (timesOfDot < 1){
 			[self.numberLabel setText:[self.numberLabel.text stringByAppendingString:buttonPressed]];
-		} else {
-			return;
 		}
 	}
 	
 	if ([@[@"0", @"1", @"2", @"3", @"4", @"5", @"6", @"7", @"8", @"9"] containsObject:buttonPressed]){
 		if (self.numberLabel.text.length == 9){
 			return;
-		}
-		if ([self.numberLabel.text isEqualToString:@"0"]){
+		} else if ([self.numberLabel.text isEqualToString:@"0"]){
 			[self.numberLabel setText:buttonPressed];
+		} else {
+			if (_justPressedOperator){
+				self.numberLabel.text = buttonPressed;
+				self.justPressedOperator = NO;
+			} else {
+				self.numberLabel.text = [self.numberLabel.text stringByAppendingString:buttonPressed];
+			}
 		}
 	} else if ([@[@"+", @"X", @"-", @"/"] containsObject:buttonPressed]){
 		[self calculateValue];
 		self.currentOperator = buttonPressed;
 		self.justPressedOperator = YES;
 		self.valueStored = [self.numberLabel.text doubleValue];
+	} else if ([buttonPressed  isEqualToString:@"="]){
+		[self calculateValue];
+		self.justPressedOperator = NO;
+		self.currentOperator = @"";
+		self.valueStored = [self.numberLabel.text doubleValue];
 	}
 }
 
 - (void)calculateValue{
 	double result;
+	NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
+	formatter.numberStyle = NSNumberFormatterDecimalStyle;
+	formatter.maximumFractionDigits = 20;
+	
 	double currentValue = [self.numberLabel.text doubleValue];
 	if ([self.currentOperator isEqualToString:@"+"]) {
 		result = self.valueStored + currentValue;
-		self.numberLabel.text = [NSString stringWithFormat:@"%f", result];
 	} else if ([self.currentOperator isEqualToString:@"-"]) {
 		result = self.valueStored - currentValue;
-		self.numberLabel.text = [NSString stringWithFormat:@"%f", result];
 	} else if ([self.currentOperator isEqualToString:@"X"]){
 		result = self.valueStored * currentValue;
-		self.numberLabel.text = [NSString stringWithFormat:@"%f", result];
 	} else if ([self.currentOperator isEqualToString:@"/"]){
 		result = self.valueStored / currentValue;
-		self.numberLabel.text = [NSString stringWithFormat:@"%f", result];
+	} else {
+		return;
 	}
-	
-//	self.numberLabel.text = [NSString stringWithFormat:@".2%f", result];
+	self.numberLabel.text = [formatter stringFromNumber:[NSNumber numberWithDouble:result]];
 }
 
 @end
